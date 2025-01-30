@@ -1,3 +1,4 @@
+/// Represents a customer
 class Customer {
   /// The customer's firstname, lastname and address.
   String firstname, lastname, address;
@@ -31,8 +32,18 @@ class Customer {
   void display() => print("Customer $firstname $lastname");
 
   /// Attempts to retreive the customer's id
-  Future<int> getUserId(String baseUrl) async {
+  Future<int> getUserId() async {
     await Future.delayed(Duration(seconds: 1));
     return 0;
   }
+}
+
+void main() async {
+  var c = Customer(
+    firstname: "Thomas",
+    lastname: "Hodson",
+    address: "On planet Earth",
+  );
+  c.display();
+  print("Id : ${await c.getUserId()}");
 }
